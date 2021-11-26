@@ -395,7 +395,7 @@ class MainWindow(QMainWindow, Ui_Main_App):
         self.show_image()
 
     def source_code(self):
-        webbrowser.open('https://gitee.com/nyanm/What-Image')
+        webbrowser.open('https://github.com/Nyanm/Relic-WhatImage')
 
     def about_me(self):
         QMessageBox.information(self, 'About Me', 'Presented by Nyanm, UESTC. \nHope you enjoy it.')
