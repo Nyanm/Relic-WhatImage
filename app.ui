@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Main_App</class>
+ <widget class="QMainWindow" name="Main_App">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1200</width>
+    <height>900</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>What Image</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QGraphicsView" name="graphicsView">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>1181</width>
+      <height>821</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1200</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionOpen"/>
+    <addaction name="separator"/>
+    <addaction name="actionSave"/>
+    <addaction name="actionSave_As"/>
+    <addaction name="separator"/>
+    <addaction name="actionQuit"/>
+   </widget>
+   <widget class="QMenu" name="menuImage">
+    <property name="title">
+     <string>Image</string>
+    </property>
+    <widget class="QMenu" name="menuRotate">
+     <property name="title">
+      <string>Rotate</string>
+     </property>
+     <addaction name="actionClockwise_90"/>
+     <addaction name="actionAnticlockwise_90"/>
+     <addaction name="action180"/>
+     <addaction name="separator"/>
+     <addaction name="actionAny_Angle"/>
+    </widget>
+    <widget class="QMenu" name="menuScaling">
+     <property name="title">
+      <string>Scaling</string>
+     </property>
+     <addaction name="actionPyramid_Up"/>
+     <addaction name="actionPyramid_Down"/>
+     <addaction name="separator"/>
+     <addaction name="actionResize"/>
+    </widget>
+    <widget class="QMenu" name="menuAdjustment">
+     <property name="title">
+      <string>Adjustment</string>
+     </property>
+     <widget class="QMenu" name="menuConvert_to_Gray">
+      <property name="title">
+       <string>Convert to Gray</string>
+      </property>
+      <addaction name="actionBasic"/>
+      <addaction name="actionAverage"/>
+      <addaction name="actionMaximum"/>
+     </widget>
+     <addaction name="menuConvert_to_Gray"/>
+     <addaction name="actionBrightness_Contrast"/>
+     <addaction name="actionInverse"/>
+     <addaction name="separator"/>
+     <addaction name="actionGamma"/>
+     <addaction name="actionLog"/>
+    </widget>
+    <widget class="QMenu" name="menuFlip">
+     <property name="title">
+      <string>Flip</string>
+     </property>
+     <addaction name="actionHorizontal"/>
+     <addaction name="actionVertical"/>
+    </widget>
+    <widget class="QMenu" name="menuQuantization">
+     <property name="title">
+      <string>Quantization</string>
+     </property>
+     <addaction name="action2bit"/>
+     <addaction name="action3bit"/>
+     <addaction name="action4bit"/>
+     <addaction name="action5bit"/>
+     <addaction name="action6bit"/>
+     <addaction name="action7bit"/>
+    </widget>
+    <widget class="QMenu" name="menuHistogram">
+     <property name="title">
+      <string>Histogram</string>
+     </property>
+     <addaction name="actionPlot_Grey"/>
+     <addaction name="actionPlot_RGB"/>
+     <addaction name="separator"/>
+     <addaction name="actionEqualization"/>
+    </widget>
+    <addaction name="menuScaling"/>
+    <addaction name="actionTranslation"/>
+    <addaction name="menuRotate"/>
+    <addaction name="menuFlip"/>
+    <addaction name="separator"/>
+    <addaction name="menuAdjustment"/>
+    <addaction name="menuHistogram"/>
+    <addaction name="separator"/>
+    <addaction name="menuQuantization"/>
+    <addaction name="actionThresholding"/>
+    <addaction name="actionClustering"/>
+   </widget>
+   <widget class="QMenu" name="menuFilter">
+    <property name="title">
+     <string>Filter</string>
+    </property>
+    <widget class="QMenu" name="menuNoise">
+     <property name="title">
+      <string>Noise</string>
+     </property>
+     <addaction name="actionSpice_Noise"/>
+     <addaction name="actionGasuss_Noise"/>
+    </widget>
+    <widget class="QMenu" name="menuStylize">
+     <property name="title">
+      <string>Stylize</string>
+     </property>
+     <addaction name="actionEmboss"/>
+     <addaction name="actionCarve"/>
+    </widget>
+    <widget class="QMenu" name="menuBlur">
+     <property name="title">
+      <string>Blur</string>
+     </property>
+     <addaction name="actionBox_Blur"/>
+     <addaction name="actionGaussian_Blur"/>
+     <addaction name="actionMedian_Blur"/>
+    </widget>
+    <widget class="QMenu" name="menuFT">
+     <property name="title">
+      <string>FT</string>
+     </property>
+     <addaction name="actionSpectrum"/>
+     <addaction name="actionIdeal_Filter"/>
+    </widget>
+    <widget class="QMenu" name="menuSharpen">
+     <property name="title">
+      <string>Sharpen</string>
+     </property>
+     <addaction name="actionLaplacian_Sharpen"/>
+     <addaction name="actionUSM_Sharpen"/>
+    </widget>
+    <widget class="QMenu" name="menuSpecial">
+     <property name="title">
+      <string>Special</string>
+     </property>
+     <addaction name="actionRetro"/>
+     <addaction name="actionGround_Glass"/>
+     <addaction name="actionSketch"/>
+     <addaction name="actionOil_Painting"/>
+    </widget>
+    <widget class="QMenu" name="menuFind_Edges_2">
+     <property name="title">
+      <string>Find Edges</string>
+     </property>
+     <addaction name="actionRoberts"/>
+     <addaction name="actionPrewitt"/>
+     <addaction name="actionSobel"/>
+     <addaction name="actionScharr"/>
+     <addaction name="actionCanny"/>
+     <addaction name="actionLOG"/>
+     <addaction name="actionLaplacian"/>
+    </widget>
+    <addaction name="menuNoise"/>
+    <addaction name="menuBlur"/>
+    <addaction name="menuSharpen"/>
+    <addaction name="menuFT"/>
+    <addaction name="menuFind_Edges_2"/>
+    <addaction name="actionMorphology"/>
+    <addaction name="menuStylize"/>
+    <addaction name="menuSpecial"/>
+   </widget>
+   <widget class="QMenu" name="menuAbout">
+    <property name="title">
+     <string>About</string>
+    </property>
+    <addaction name="actionSource_Code"/>
+    <addaction name="actionAbout_me"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+    <addaction name="actionRedo"/>
+    <addaction name="actionBack"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menuImage"/>
+   <addaction name="menuFilter"/>
+   <addaction name="menuAbout"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionOpen">
+   <property name="text">
+    <string>Open</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="text">
+    <string>Save</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionSave_As">
+   <property name="text">
+    <string>Save As</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+S</string>
+   </property>
+  </action>
+  <action name="actionQuit">
+   <property name="text">
+    <string>Quit</string>
+   </property>
+   <property name="toolTip">
+    <string>Quit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionSource_Code">
+   <property name="text">
+    <string>Source Code</string>
+   </property>
+  </action>
+  <action name="actionAbout_me">
+   <property name="text">
+    <string>About Me</string>
+   </property>
+  </action>
+  <action name="actionTranslation">
+   <property name="text">
+    <string>Translation</string>
+   </property>
+  </action>
+  <action name="actionClockwise_90">
+   <property name="text">
+    <string>Clockwise 90°</string>
+   </property>
+  </action>
+  <action name="actionAnticlockwise_90">
+   <property name="text">
+    <string>Anticlockwise 90°</string>
+   </property>
+  </action>
+  <action name="action180">
+   <property name="text">
+    <string>180°</string>
+   </property>
+  </action>
+  <action name="actionAny_Angle">
+   <property name="text">
+    <string>Any Angle</string>
+   </property>
+  </action>
+  <action name="actionPyramid_Up">
+   <property name="text">
+    <string>Pyramid Up</string>
+   </property>
+   <property name="toolTip">
+    <string>Pyramid Up</string>
+   </property>
+  </action>
+  <action name="actionPyramid_Down">
+   <property name="text">
+    <string>Pyramid Down</string>
+   </property>
+   <property name="toolTip">
+    <string>Pyramid Down</string>
+   </property>
+  </action>
+  <action name="actionBrightness_Contrast">
+   <property name="text">
+    <string>Brightness/Contrast</string>
+   </property>
+   <property name="toolTip">
+    <string>Brightness/Contrast</string>
+   </property>
+  </action>
+  <action name="actionInverse">
+   <property name="text">
+    <string>Inverse</string>
+   </property>
+  </action>
+  <action name="actionSpice_Noise">
+   <property name="text">
+    <string>Spice Noise</string>
+   </property>
+  </action>
+  <action name="actionGasuss_Noise">
+   <property name="text">
+    <string>Gasuss Noise</string>
+   </property>
+  </action>
+  <action name="actionThresholding">
+   <property name="text">
+    <string>Thresholding</string>
+   </property>
+  </action>
+  <action name="actionBasic">
+   <property name="text">
+    <string>Basic</string>
+   </property>
+  </action>
+  <action name="actionAverage">
+   <property name="text">
+    <string>Average</string>
+   </property>
+  </action>
+  <action name="actionMaximum">
+   <property name="text">
+    <string>Maximum</string>
+   </property>
+  </action>
+  <action name="actionSpectrum">
+   <property name="text">
+    <string>Spectrum</string>
+   </property>
+  </action>
+  <action name="actionEmboss">
+   <property name="text">
+    <string>Emboss</string>
+   </property>
+  </action>
+  <action name="actionClustering">
+   <property name="text">
+    <string>Clustering</string>
+   </property>
+  </action>
+  <action name="actionGamma">
+   <property name="text">
+    <string>Gamma</string>
+   </property>
+  </action>
+  <action name="actionLog">
+   <property name="text">
+    <string>Log</string>
+   </property>
+  </action>
+  <action name="actionRetro">
+   <property name="text">
+    <string>Retro</string>
+   </property>
+  </action>
+  <action name="actionHorizontal">
+   <property name="text">
+    <string>Horizontal</string>
+   </property>
+  </action>
+  <action name="actionVertical">
+   <property name="text">
+    <string>Vertical</string>
+   </property>
+  </action>
+  <action name="action2bit">
+   <property name="text">
+    <string>2bit(4Levels)</string>
+   </property>
+   <property name="toolTip">
+    <string>2bit(4Levels)</string>
+   </property>
+  </action>
+  <action name="action3bit">
+   <property name="text">
+    <string>3bit(8Levels)</string>
+   </property>
+   <property name="toolTip">
+    <string>3bit(8Levels)</string>
+   </property>
+  </action>
+  <action name="action4bit">
+   <property name="text">
+    <string>4bit(16Levels)</string>
+   </property>
+   <property name="toolTip">
+    <string>4bit(16Levels)</string>
+   </property>
+  </action>
+  <action name="action5bit">
+   <property name="text">
+    <string>5bit(32Levels)</string>
+   </property>
+   <property name="toolTip">
+    <string>5bit(32Levels)</string>
+   </property>
+  </action>
+  <action name="action6bit">
+   <property name="text">
+    <string>6bit(64Levels)</string>
+   </property>
+   <property name="toolTip">
+    <string>6bit(64Levels)</string>
+   </property>
+  </action>
+  <action name="action7bit">
+   <property name="text">
+    <string>7bit(128Levels)</string>
+   </property>
+   <property name="toolTip">
+    <string>7bit(128Levels)</string>
+   </property>
+  </action>
+  <action name="actionMorphology">
+   <property name="text">
+    <string>Morphology</string>
+   </property>
+  </action>
+  <action name="actionRoberts">
+   <property name="text">
+    <string>Roberts</string>
+   </property>
+  </action>
+  <action name="actionPrewitt">
+   <property name="text">
+    <string>Prewitt</string>
+   </property>
+  </action>
+  <action name="actionSobel">
+   <property name="text">
+    <string>Sobel</string>
+   </property>
+  </action>
+  <action name="actionScharr">
+   <property name="text">
+    <string>Scharr</string>
+   </property>
+  </action>
+  <action name="actionCanny">
+   <property name="text">
+    <string>Canny</string>
+   </property>
+  </action>
+  <action name="actionLOG">
+   <property name="text">
+    <string>LOG</string>
+   </property>
+  </action>
+  <action name="actionLaplacian">
+   <property name="text">
+    <string>Laplacian</string>
+   </property>
+  </action>
+  <action name="actionResize">
+   <property name="text">
+    <string>Resize</string>
+   </property>
+  </action>
+  <action name="actionPlot_Grey">
+   <property name="text">
+    <string>Plot Grey</string>
+   </property>
+  </action>
+  <action name="actionPlot_RGB">
+   <property name="text">
+    <string>Plot RGB</string>
+   </property>
+  </action>
+  <action name="actionEqualization">
+   <property name="text">
+    <string>Equalization</string>
+   </property>
+  </action>
+  <action name="actionRedo">
+   <property name="text">
+    <string>Redo</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Y</string>
+   </property>
+  </action>
+  <action name="actionBack">
+   <property name="text">
+    <string>Back</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Z</string>
+   </property>
+  </action>
+  <action name="actionBox_Blur">
+   <property name="text">
+    <string>Box Blur</string>
+   </property>
+  </action>
+  <action name="actionGaussian_Blur">
+   <property name="text">
+    <string>Gaussian Blur</string>
+   </property>
+  </action>
+  <action name="actionMedian_Blur">
+   <property name="text">
+    <string>Median Blur</string>
+   </property>
+  </action>
+  <action name="actionLaplacian_Sharpen">
+   <property name="text">
+    <string>Laplacian Sharpen</string>
+   </property>
+  </action>
+  <action name="actionUSM_Sharpen">
+   <property name="text">
+    <string>USM Sharpen</string>
+   </property>
+  </action>
+  <action name="actionIdeal_Filter">
+   <property name="text">
+    <string>Ideal Filter</string>
+   </property>
+  </action>
+  <action name="actionCarve">
+   <property name="text">
+    <string>Carve</string>
+   </property>
+  </action>
+  <action name="actionGround_Glass">
+   <property name="text">
+    <string>Ground Glass</string>
+   </property>
+  </action>
+  <action name="actionSketch">
+   <property name="text">
+    <string>Sketch</string>
+   </property>
+  </action>
+  <action name="actionOil_Painting">
+   <property name="text">
+    <string>Oil Painting</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
